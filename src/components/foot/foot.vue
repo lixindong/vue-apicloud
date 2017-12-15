@@ -4,6 +4,7 @@
             <span>
                 {{clide}}
             </span>
+            <button v-on:click="incrementCounter">{{ counter }}</button>
     </div>
      </template>
 
@@ -13,10 +14,17 @@
         data () {
           return {
             childMsg: 'Welcome to Your Vue.js App',
-            clide:this.message
+            clide:this.message,
+            counter:0
           }
         },
-        props: ['message']
+        props: ['message'],
+        methods: {
+         incrementCounter: function () {
+           this.counter += 1
+           this.$emit('increment')
+         }
+       },
 
       }
     </script>

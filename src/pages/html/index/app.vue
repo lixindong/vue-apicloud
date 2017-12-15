@@ -30,7 +30,11 @@
 
     </ul>
     <foot  v-bind:message="childMsg"></foot>
-    <div>{{childMsg}}</div>
+
+
+    <p>{{ total }}</p>
+    <foot v-on:increment="incrementTotal"></foot>
+  <foot v-on:increment="incrementTotal"></foot>
 </div>
 </template>
 
@@ -41,7 +45,8 @@ export default {
     data() {
         return {
             dataHasLoaded: false,
-            childMsg:'父组件'
+            childMsg:'父组件',
+            total:0,
         }
     },
     created() {
@@ -67,7 +72,9 @@ export default {
 
     },
     methods: {
-
+      incrementTotal: function () {
+        this.total += 1
+      }
     }
 }
 </script>
